@@ -20,8 +20,11 @@
 body {
     /* Ảnh nền của trang thứ 2 */
     background-image: url("./img/Locket_1717382878896_4.jpg");
-    background-size: cover;
-    background-repeat: none;
+    background-size: contain; /* Đảm bảo ảnh nền vừa với màn hình mà không bị cắt */
+    background-repeat: no-repeat; /* Ngừng việc lặp lại ảnh nền */
+    background-position: center center; /* Căn giữa ảnh nền */
+    margin: 0;
+    height: 100vh; /* Đảm bảo body luôn chiếm 100% chiều cao màn hình */
 }
 
 span {
@@ -36,9 +39,32 @@ span {
 .mask {
     position: absolute;
     background-image: url("./img/Locket_1717382909158_24.jpg"); /* Thay đường dẫn ảnh của bạn tại đây */
-    background-size: cover; /* Đảm bảo ảnh nền phủ hết diện tích */
+    background-size: contain; /* Đảm bảo ảnh nền vừa với diện tích */
+    background-position: center center; /* Căn giữa ảnh */
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+}
+
+/* Media Queries cho các màn hình nhỏ */
+@media (max-width: 768px) {
+    body {
+        background-size: contain; /* Giữ ảnh nền phù hợp với kích thước màn hình nhỏ */
+    }
+
+    .mask {
+        background-size: contain; /* Đảm bảo ảnh nền trong mask vừa với diện tích */
+    }
+}
+
+/* Media Queries cho các màn hình di động */
+@media (max-width: 480px) {
+    body {
+        background-size: contain; /* Giữ ảnh nền vừa với màn hình nhỏ */
+    }
+
+    .mask {
+        background-size: contain; /* Đảm bảo ảnh nền trong mask vừa với diện tích */
+    }
 }
